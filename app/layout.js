@@ -1,55 +1,32 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { siteDescription, siteName, siteUrl } from "./site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const viewport = {
+  themeColor: "#f5fbff",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://giftcardportal.vip"),
   title: {
-    default: `GiftCardMall/MyGift | Balance/Activation | Official Website`,
-    template: `%s | ${siteName}`,
+    default: "GiftCardMall/MyGift Balance & Activation Guide | GiftCardPortal",
   },
-  description: siteDescription,
-  applicationName: siteName,
+  description:
+    "Explore how to find GiftCardMall/MyGift cards real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
   keywords: [
     "GiftCardMall MyGift balance",
     "GiftCardMall balance",
     "MyGift prepaid card",
-    "GiftCardMall/MyGift ",
-    "GiftCardMall/MyGift balance",
-    "GiftCardMall/MyGift check balance",
-    "GiftCardMall/MyGift activation",
-    "Check My Balance GiftCardMall MyGift",
-    "giftcardmall/mygift visa",
-
-
+    "gift card balance check",
+    "prepaid gift card activation instructions",
+    "prepaid card transaction help",
   ],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "/",
-    siteName,
-    title: `GiftCardMall/MyGift Balance and Activation Guide | ${siteName}`,
-    description: siteDescription,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `GiftCardMall/MyGift Balance and Activation Guide | ${siteName}`,
-    description: siteDescription,
-    images: ["/opengraph-image"],
-  },
   robots: {
     index: true,
     follow: true,
@@ -61,12 +38,32 @@ export const metadata = {
       "max-video-preview": -1,
     },
   },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "GiftCardPortal",
+    title: "GiftCardMall/MyGift | View Your Gift on GiftCardPortal",
+    description:
+      "Explore GiftCardMall/MyGift to find your cards real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
+  },
+  twitter: {
+    card: "summary",
+    title: "GiftCardMall/MyGift | View Your Gift on GiftCardPortal",
+    description:
+      "Explore how to find your GiftCardMall/MyGift real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html  className={inter.variable}>
+    
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

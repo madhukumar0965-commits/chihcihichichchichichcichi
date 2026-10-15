@@ -1,4 +1,4 @@
-import { siteUrl } from "./site";
+export const dynamic = "force-static";
 
 export default function robots() {
   return {
@@ -6,7 +6,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    sitemap: "https://giftcardportal.vip/sitemap.xml",
   };
 }

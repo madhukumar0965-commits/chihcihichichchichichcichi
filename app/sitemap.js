@@ -1,11 +1,9 @@
-import { siteUrl } from "./site";
+export const dynamic = "force-static";
 
 export default function sitemap() {
   return [
     {
-      url: siteUrl,
-      changeFrequency: "monthly",
-      priority: 1,
+      url: "https://giftcardportal.vip/",
     },
   ];
 }
