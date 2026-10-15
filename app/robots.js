@@ -6,6 +6,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://giftcardportal.vip/sitemap.xml",
+    sitemap: "https://giftcardmall.vip/sitemap.xml",
   };
 }
