@@ -137,9 +137,9 @@ export default function Home() {
 
       <header className="header">
         <div className="container nav">
-          <a className="brand" href="#top" aria-label="GiftCardPortal home">
+          <a className="brand" href="#top" aria-label="GiftCardMall home">
             <span className="brand-icon">G</span>
-            <span>GiftCardPortal</span>
+            <span>GiftCardMall</span>
           </a>
 
           <nav className="nav-links" aria-label="Main navigation">
