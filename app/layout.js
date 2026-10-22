@@ -18,7 +18,7 @@ export const metadata = {
     default: "GiftCardMall/MyGift Balance & Activation Guide | GiftCardPortal",
   },
   description:
-    "Explore how to find GiftCardMall/MyGift cards real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
+    "An independent guide to GiftCardMall/MyGift balance checks, card activation, and prepaid gift card support. Visit the official issuer website for card-specific services.",
   keywords: [
     "GiftCardMall MyGift balance",
     "GiftCardMall balance",
@@ -42,15 +42,15 @@ export const metadata = {
     type: "website",
     url: "/",
     siteName: "GiftCardPortal",
-    title: "GiftCardMall/MyGift | View Your Gift on GiftCardPortal",
+    title: "GiftCardMall/MyGift Guide | GiftCardPortal",
     description:
-      "Explore GiftCardMall/MyGift to find your cards real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
+      "An independent guide to GiftCardMall/MyGift balance checks and card activation, with a link to the official issuer website.",
   },
   twitter: {
     card: "summary",
-    title: "GiftCardMall/MyGift | View Your Gift on GiftCardPortal",
+    title: "GiftCardMall/MyGift Guide | GiftCardPortal",
     description:
-      "Explore how to find your GiftCardMall/MyGift real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
+      "An independent guide to GiftCardMall/MyGift balance checks and card activation, with a link to the official issuer website.",
   },
   alternates: {
     canonical: "/",

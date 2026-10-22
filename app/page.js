@@ -159,49 +159,69 @@ export default function Home() {
         <section className="hero">
           <div className="container hero-grid">
             <div>
-              <div className="eyebrow">Prepaid Card Learning Center</div>
+              <div className="eyebrow">Balance &amp; Activation Guide</div>
 
               <h1>
-                Your Practical Guide to{" "}
-                <span>GiftCardMall/Mygift</span>
+                GiftCardMall/MyGift Balance Check &amp;{" "}
+                <span>Card Activation</span>
               </h1>
 
               <p className="hero-copy">
-                Learn how prepaid GiftCardMall/Mygift balance work, where to find
-                card-specific instructions, what activation can involve and why
-                some online transactions may not succeed. This guide organizes
-                common questions into clear, practical answers.
+                Learn how to find your balance and activation instructions
+                through the card issuer. This independent guide explains the
+                basics and links you directly to the official GiftCardMall
+                portal for card-specific services.
               </p>
 
               <div className="actions">
-                <a className="btn btn-primary" href="#balance">
-                  Check your balance
+                <a
+                  className="btn btn-primary"
+                  href="https://mygift.giftcardmall.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Official GiftCardMall Website
                 </a>
-                <a className="btn btn-secondary" href="#faq">
-                  Browse Questions
+                <a className="btn btn-secondary" href="#activation">
+                  MyGift Card Instructions
                 </a>
               </div>
+
+              <ul className="hero-points">
+                <li>Step-by-step balance guidance</li>
+                <li>Activation checklist</li>
+                <li>Official support resources</li>
+              </ul>
             </div>
 
             <aside className="hero-card">
-              <div className="card-label">Start with the basics</div>
-              <h2>Before you check your card balance</h2>
+              <div className="card-label">Prepaid gift card</div>
+              <div
+                className="card-preview"
+                role="img"
+                aria-label="Illustrative gift card with masked details"
+              >
+                <span className="card-preview-number">•••• •••• •••• ••••</span>
+                <div className="card-preview-balance">
+                  <span>Available balance</span>
+                  <strong>$•••.••</strong>
+                </div>
+              </div>
+              <h2>Manage your card securely</h2>
 
               <div className="mini-answer">
-                <strong>Find the original card instructions</strong>
+                <strong>Use the issuer&apos;s official website</strong>
                 <p>
-                  Check the back of your card, its packaging, or the
-                  issuer&apos;s documents to find the correct way to manage
-                  your card.
+                  Follow the instructions printed on your card or packaging,
+                  and check the web address before continuing.
                 </p>
               </div>
 
               <div className="mini-answer">
-                <strong>Protect your payment details</strong>
+                <strong>This guide never collects card details</strong>
                 <p>
-                  Verify the web address before entering information. This
-                  independent guide never needs your full card number, PIN or
-                  CVV.
+                  Enter private card information only on the issuer&apos;s
+                  verified service.
                 </p>
               </div>
             </aside>
@@ -228,23 +248,20 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <div className="kicker">The essentials</div>
-              <h2>Prepaid Gift Cards: Key Information and Tips</h2>
+              <h2>GiftCardMall/MyGift Card Information</h2>
               <p>
-                Gift card questions generally involve checking available funds,
-                completing card activation, confirming payment options, or
-                troubleshooting unsuccessful transactions. Knowing which topic
-                applies to your situation can save time and simplify the
-                process.
+              Find practical information about checking available funds,
+              activating a card, and resolving common payment issues. For
+              account-specific help, use the issuer&apos;s official service.
               </p>
             </div>
 
             <div className="answer-box">
               <span className="label">Quick explanation</span>
               <p>
-                GiftCardMall/MyGift-related queries commonly focus on prepaid
-                gift card services. Before checking your available balance or
-                managing your card, review the specific program requirements
-                and follow the guidance supplied by your card issuer.
+                GiftCardMall/MyGift is the card service people use to check
+                available funds, activate eligible cards, and review activity.
+                The exact options depend on your card and its issuer.
               </p>
             </div>
 
@@ -253,9 +270,8 @@ export default function Home() {
                 <div className="icon-box">01</div>
                 <h3>Balance awareness</h3>
                 <p>
-                  Find out how much value remains on your card and how
-                  transactions, temporary payment holds, or refunds can affect
-                  your displayed balance.
+                  Check the value remaining on your card and learn how pending
+                  transactions or refunds can affect the displayed balance.
                 </p>
               </article>
 
@@ -263,9 +279,8 @@ export default function Home() {
                 <div className="icon-box">02</div>
                 <h3>Activation Guide</h3>
                 <p>
-                  Explore how to find activation information for your gift card
-                  and learn why specific requirements depend on the program and
-                  its issuer.
+                  Find out whether your card needs activation and follow the
+                  instructions supplied with that card.
                 </p>
               </article>
 
@@ -273,9 +288,8 @@ export default function Home() {
                 <div className="icon-box">03</div>
                 <h3>Resolving Payment Issues</h3>
                 <p>
-                  Find helpful information about declined gift card payments,
-                  potential transaction errors, and practical ways to determine
-                  what to do next.
+                  Understand common reasons a gift card payment may be declined
+                  and where to get issuer support.
                 </p>
               </article>
             </div>
@@ -342,6 +356,22 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            <div className="official-link">
+              <p>
+                To view your account-specific balance, continue to the verified
+                GiftCardMall service. This site does not request or store card
+                details.
+              </p>
+              <a
+                className="btn btn-primary"
+                href="https://mygift.giftcardmall.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Check Balance at GiftCardMall
+              </a>
             </div>
           </div>
         </section>
@@ -519,6 +549,17 @@ export default function Home() {
                 possible.
               </p>
             </div>
+            <p className="official-link-note">
+              For card-specific activation, use the official{" "}
+              <a
+                href="https://mygift.giftcardmall.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GiftCardMall/MyGift website
+              </a>{" "}
+              and follow the instructions provided with your card.
+            </p>
           </div>
         </section>
 
@@ -719,15 +760,20 @@ export default function Home() {
             </div>
 
             <div className="cta">
-              <h2>Start with the right information</h2>
+              <h2>Check your MyGift balance at GiftCardMall</h2>
               <p>
-                For your security, please refer to your card&apos;s included
-                documentation, confirm the official support web address, and
-                check the guide above before making any updates.
+                For balance checks, activation, and account support, use the
+                official GiftCardMall portal. You will leave this independent
+                information website.
               </p>
               <div className="actions">
-                <a className="btn btn-primary" href="#balance">
-                  Balance Guide
+                <a
+                  className="btn btn-primary"
+                  href="https://mygift.giftcardmall.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Official GiftCardMall Website
                 </a>
                 <a className="btn btn-secondary" href="#activation">
                   Activation Guide
