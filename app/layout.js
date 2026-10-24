@@ -16,7 +16,7 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "GiftCardMall/MyGift Balance Check Guide | Cardholder Help",
+    default: "GiftCardMall/MyGift | Official Website | View Your Card",
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
