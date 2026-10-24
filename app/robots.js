@@ -1,3 +1,5 @@
+import { siteUrl } from "./site";
+
 export const dynamic = "force-static";
 
 export default function robots() {
@@ -6,6 +8,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://giftcardmall.vip/sitemap.xml",
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }

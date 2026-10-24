@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { siteDescription, siteName, siteUrl } from "./site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -7,28 +8,24 @@ const inter = Inter({
 });
 
 export const viewport = {
-  themeColor: "#f5fbff",
+  themeColor: "#f7faf8",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata = {
-  metadataBase: new URL("https://giftcardportal.vip"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "GiftCardMall/MyGift | Check Balance | Official Site",
+    default: "GiftCardMall/MyGift Balance: How to Check Your GiftCardMall Card",
+    template: `%s | ${siteName}`,
   },
-  description:
-    "Check your mygift balance, activate your card, and view transactions at giftcardmall.com/mygift safe;y",
- 
+  description: siteDescription,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html  className={inter.variable}>
-    
-      <body>
-        {children}
-      </body>
+    <html lang="en" className={inter.variable}>
+      <body>{children}</body>
     </html>
   );
 }

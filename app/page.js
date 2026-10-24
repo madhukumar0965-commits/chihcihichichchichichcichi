@@ -1,755 +1,256 @@
+const officialPortal = "https://mygift.giftcardmall.com/";
+
 const faqs = [
   {
-    question:
-      "How can I check my GiftCardMall MyGift balance or GiftCardMall balance?",
+    question: "What is GiftCardMall MyGift?",
     answer:
-      "Start with the balance-check details printed on your card or packaging. Make sure the web address matches the issuer’s instructions before entering any card information.",
+      "MyGift is a cardholder portal for eligible GiftCardMall cards. Depending on your card, it may let you check the available balance, review transactions, or register a billing ZIP code. Follow the instructions and terms supplied with your card.",
   },
   {
-    question: "Does a prepaid card need to be activated?",
+    question: "How do I check my GiftCardMall balance?",
     answer:
-      "It depends on the card. Some are activated when purchased, while others require an extra step. Check the receipt and card materials for the correct process.",
+      "Use the official MyGift page linked from your card materials or GiftCardMall. You will need the information requested by the issuer. You can also call the support number printed on your card.",
   },
   {
-    question: "Why might a prepaid card payment be declined?",
+    question: "Is this website the official GiftCardMall site?",
     answer:
-      "A payment can fail if the card is not activated, the available balance is too low, or the merchant or transaction type is not supported. Review the card instructions and contact the issuer if you still need help.",
+      "No. GiftBestMall Guides is an independent publisher and is not affiliated with GiftCardMall, MyGift, Visa, or any card issuer. This guide cannot access your card or check its balance.",
   },
   {
-    question: "Can I use a prepaid Visa card for any online purchase?",
+    question: "Why was my GiftCardMall/MyGift Visa card declined?",
     answer:
-      "Not always. Online use depends on the card’s terms, the merchant’s payment rules, and the available balance. Some cards restrict certain transaction types.",
+      "Common reasons include an unregistered billing ZIP code, an insufficient balance after tax and shipping, incorrect card details, a pending hold, or card-specific activation or expiration rules. Check your card terms and contact the issuer if needed.",
   },
   {
-    question: "What does GiftCardMall/MyGift balance mean?",
+    question: "Can I use a GiftCardMall card online?",
     answer:
-      "It refers to the available value on a prepaid card. Purchases, refunds, and pending authorizations can affect the amount shown.",
+      "Some cards can be used online, but acceptance and registration requirements vary by card and merchant. Review your card materials and the issuer's official portal for the rules that apply to your card.",
   },
   {
-    question: "Where can I find GiftCardMall/MyGift balance information?",
+    question: "Is it safe to enter my card number on other websites to check the balance?",
     answer:
-      "Use the balance and support instructions printed on your card or packaging, and verify the website address before entering private details.",
+      "Only enter card information on the official issuer or cardholder portal identified by your card materials. This independent guide does not ask for or collect card numbers, expiration dates, security codes, or billing details.",
+  },
+];
+
+const declineReasons = [
+  {
+    symptom: "Card declined online",
+    cause: "Billing ZIP code may not be registered",
+    action: "Check the official portal for registration options, then retry with the same ZIP code.",
   },
   {
-    question: "Is GiftCardPortal an official GiftCardMall/MyGift website?",
-    answer:
-      "No. GiftCardPortal is an independent information resource and is not affiliated with or endorsed by GiftCardMall, MyGift, or a card issuer.",
+    symptom: "Declined for the full purchase price",
+    cause: "Available balance may not cover the total, including tax and shipping",
+    action: "Check the balance and ask the merchant whether split payment is allowed.",
   },
   {
-    question: "What does GiftCardMall/MyGift refer to?",
-    answer:
-      "People use this phrase when looking for prepaid card balance, activation, or transaction guidance. The right process depends on the issuer and card program.",
+    symptom: "Card details rejected",
+    cause: "Card number, expiration date, or security code may have been mistyped",
+    action: "Carefully re-enter the details on the merchant's secure checkout page.",
+  },
+  {
+    symptom: "Balance lower than expected",
+    cause: "A pending authorization or merchant hold may affect the available balance",
+    action: "Ask the merchant about the hold or contact the card issuer for help.",
+  },
+  {
+    symptom: "Card refused everywhere",
+    cause: "The card may be expired, inactive, or subject to card-specific restrictions",
+    action: "Check the expiration date and contact the support number printed on the card.",
   },
 ];
 
 export default function Home() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://giftcardportal.vip/#website",
-        "url": "https://giftcardportal.vip/",
-        "name": "GiftCardPortal",
-        "description":
-          "Practical information on prepaid gift card balances, card activation, and everyday usage.",
-        "inLanguage": "en-US",
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://giftcardportal.vip/#organization",
-        "name": "GiftCardPortal",
-        "url": "https://giftcardportal.vip/",
-        "description":
-          "Explore how to find your GiftCardMall/MyGift real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://giftcardportal.vip/#webpage",
-        "url": "https://giftcardportal.vip/",
-        "name": "GiftCardMall/MyGift Balance and Activation Guide | GiftCardPortal",
-        "description":
-          "Explore how to find your GiftCardMall/MyGift real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
-        "isPartOf": {
-          "@id": "https://giftcardportal.vip/#website",
-        },
-        "about": [
-          {
-            "@type": "Thing",
-            "name": "GiftCardMall/Mygift",
-          },
-          {
-            "@type": "Thing",
-            "name": "Prepaid gift card balance",
-          },
-          {
-            "@type": "Thing",
-            "name": "Gift card activation",
-          },
-          {
-            "@type": "Thing",
-            "name": "Prepaid Visa cards",
-          },
-        ],
-        "inLanguage": "en-US",
-      },
-      {
-        "@type": "Article",
-        "@id": "https://giftcardportal.vip/#article",
-        "headline": "GiftCardMall/MyGift Balance and Activation Guide",
-        "description":
-          "Explore how to find your GiftCardMall/MyGift real balance-check Activation, read available funds, understand transactions, and solve prepaid gift card issues.",
-        "mainEntityOfPage": {
-          "@id": "https://giftcardportal.vip/#webpage",
-        },
-        "author": {
-          "@type": "webpage",
-          "name": "GiftCardPortal",
-        },
-        "publisher": {
-          "@id": "https://giftcardportal.vip/#webpage",
-        },
-        "inLanguage": "en-US",
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://giftcardportal.vip/#faq",
-        "mainEntity": faqs.map(({ question, answer }) => ({
-          "@type": "Question",
-          "name": question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": answer,
-          },
-        })),
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
-
-      <header className="header">
+      <header className="site-header">
         <div className="container nav">
-          <a className="brand" href="#top" aria-label="GiftCardMall home">
-            <span className="brand-icon">G</span>
-            <span>GiftCardMall</span>
+          <a className="brand" href="#top" aria-label="GiftBestMall Guides home">
+            <span className="brand-mark" aria-hidden="true">G</span>
+            <span>GiftBestMall <span className="brand-light">Guides</span></span>
           </a>
-
           <nav className="nav-links" aria-label="Main navigation">
-            <a href="#guide">Overview</a>
-            <a href="#balance">Balance</a>
-            <a href="#activation">Activation</a>
-            <a href="#visa">Visa Usage</a>
+            <a href="#check">Check balance</a>
+            <a href="#register">Register</a>
+            <a href="#problems">Fix problems</a>
             <a href="#faq">FAQ</a>
           </nav>
         </div>
       </header>
 
-      <div id="top"></div>
-
-      <main>
-        {/* HERO SECTION */}
+      <main id="top">
         <section className="hero">
-          <div className="container hero-grid">
-            <div>
-              <div className="eyebrow">Balance &amp; Activation Guide</div>
-
-              <h1>
-                GiftCardMall/MyGift Balance Check &amp;{" "}
-                <span>Card Activation</span>
-              </h1>
-
-              <p className="hero-copy">
-                Learn how to find your balance and activation instructions
-                through the card issuer. This independent guide explains the
-                basics and links you directly to the official GiftCardMall
-                portal for card-specific services.
-              </p>
-
-              <div className="actions">
-                <a
-                  className="btn btn-primary"
-                  href="https://mygift.giftcardmall.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Official GiftCardMall Website
-                </a>
-                <a className="btn btn-secondary" href="#activation">
-                  MyGift Card Instructions
-                </a>
-              </div>
-
-              <ul className="hero-points">
-                <li>Step-by-step balance guidance</li>
-                <li>Activation checklist</li>
-                <li>Official support resources</li>
-              </ul>
+          <div className="container hero-inner">
+            <div className="eyebrow"><span className="eyebrow-dot" /> Independent cardholder guide</div>
+            <h1>GiftCardMall/MyGift Balance: <span>How to Check Your GiftCardMall Card</span></h1>
+            <p className="hero-description">
+              This guide explains the GiftCardMall/MyGift balance check, MyGift
+              GiftCardMall registration, and everyday use of a GiftCardMall/MyGift
+              Visa card—so you know what to check when your card doesn&apos;t work.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-dark" href="#check">Check GiftCardMall balance <span aria-hidden="true">↓</span></a>
+              <a className="button button-light" href="#faq">Read the FAQ <span aria-hidden="true">→</span></a>
             </div>
+            <div className="hero-notice">
+              <span className="notice-icon" aria-hidden="true">i</span>
+              <p><strong>Quick answer:</strong> Visit the official <a href={officialPortal} target="_blank" rel="noopener noreferrer">GiftCardMall/MyGift page</a>, reached from <a href="https://www.giftcardmall.com/" target="_blank" rel="noopener noreferrer">GiftCardMall</a> or your card materials. Follow the issuer&apos;s instructions to check your available balance. You can also call the number printed on your card.</p>
+            </div>
+            <p className="independent-note">
+              This is an independent guide, not the official GiftCardMall/MyGift site. We do not check balances or collect card details. Enter private information only on the verified issuer portal.
+            </p>
+          </div>
+        </section>
 
-            <aside className="hero-card">
-              <div className="card-label">Prepaid gift card</div>
-              <div
-                className="card-preview"
-                role="img"
-                aria-label="Illustrative gift card with masked details"
-              >
-                <span className="card-preview-number">•••• •••• •••• ••••</span>
-                <div className="card-preview-balance">
-                  <span>Available balance</span>
-                  <strong>$•••.••</strong>
-                </div>
-              </div>
-              <h2>Manage your card securely</h2>
+        <section className="section" id="about">
+          <div className="container article-narrow">
+            <span className="section-kicker">The basics</span>
+            <h2>What are GiftCardMall and MyGift GiftCardMall?</h2>
+            <p>
+              GiftCardMall is a retailer of prepaid gift cards. Some cards sold
+              through gift card retailers carry a Visa or Mastercard logo and can
+              be used wherever that payment network and the card&apos;s terms allow.
+              People searching for “giftcardmall/mygift,” “giftcardmall balance,”
+              or “gift card mall” are often looking for information about a card
+              they already have.
+            </p>
+            <p>
+              MyGift is a cardholder portal for eligible cards. Depending on the
+              card program, it may provide balance information, transaction
+              history, or registration options. Available features and terms can
+              vary by card, so use the information supplied with yours.
+            </p>
+          </div>
+        </section>
 
-              <div className="mini-answer">
-                <strong>Use the issuer&apos;s official website</strong>
-                <p>
-                  Follow the instructions printed on your card or packaging,
-                  and check the web address before continuing.
-                </p>
-              </div>
-
-              <div className="mini-answer">
-                <strong>This guide never collects card details</strong>
-                <p>
-                  Enter private card information only on the issuer&apos;s
-                  verified service.
-                </p>
-              </div>
+        <section className="section section-soft" id="check">
+          <div className="container article-layout">
+            <div className="article-main">
+              <span className="section-kicker">Balance check</span>
+              <h2>How to check your GiftCardMall balance on MyGift</h2>
+              <p className="section-lede">Have your card available. Checking a balance usually takes a few minutes.</p>
+              <ol className="steps">
+                <li>
+                  <span className="step-number">1</span>
+                  <div><h3>Find your card instructions</h3><p>Review the back of the card and its packaging for the official balance-check address and support number. Keep the card details private.</p></div>
+                </li>
+                <li>
+                  <span className="step-number">2</span>
+                  <div><h3>Open the official GiftCardMall/MyGift page</h3><p>Use the address or link identified by your card materials or navigate from <a href="https://www.giftcardmall.com/" target="_blank" rel="noopener noreferrer">GiftCardMall.com</a>. Avoid sponsored search results, unexpected texts, and email links.</p></div>
+                </li>
+                <li>
+                  <span className="step-number">3</span>
+                  <div><h3>Follow the issuer&apos;s prompts</h3><p>If you choose to continue, enter requested information only on the verified issuer site. This guide never asks you to submit card details here.</p></div>
+                </li>
+                <li>
+                  <span className="step-number">4</span>
+                  <div><h3>Review the available balance</h3><p>Check the available balance and recent activity shown by the portal. Pending transactions or merchant holds may affect the amount.</p></div>
+                </li>
+                <li>
+                  <span className="step-number">5</span>
+                  <div><h3>Contact the card issuer if needed</h3><p>If you cannot access the portal or have questions, call the support number printed on your card.</p></div>
+                </li>
+              </ol>
+              <p className="article-footnote">Processes differ among card programs. Follow the instructions provided with your specific card.</p>
+            </div>
+            <aside className="side-card">
+              <span className="side-card-icon" aria-hidden="true">↗</span>
+              <h3>Use the official cardholder portal</h3>
+              <p>For account-specific balance and transaction information, follow the link in your card materials and verify the web address before proceeding.</p>
+              <a className="button button-dark button-full" href={officialPortal} target="_blank" rel="noopener noreferrer">Go to MyGift <span aria-hidden="true">↗</span></a>
+              <small>You&apos;ll leave this independent guide. Never share card details through this site.</small>
             </aside>
           </div>
         </section>
 
-        {/* NOTICE BANNER */}
-        <div className="notice">
-          <div className="container notice-inner">
-            <div className="notice-icon">!</div>
-            <p>
-              <strong>Independent resource:</strong> GiftCardPortal is an
-              independent informational website and is not the official
-              GiftCardMall or MyGift website. It is not affiliated with
-              Blackhawk Network, Visa, Mastercard, American Express, any bank,
-              retailer, or individual card issuer. Please refer to the
-              instructions provided with your specific gift card.
-            </p>
+        <section className="section" id="register">
+          <div className="container article-layout">
+            <div className="article-main">
+              <span className="section-kicker">Registration</span>
+              <h2>Registering a GiftCardMall/MyGift Visa card</h2>
+              <p>
+                Some card programs let cardholders register a billing ZIP code.
+                An online merchant may verify billing details at checkout, so a
+                mismatch or missing registration can sometimes cause a payment
+                to be declined—even when the available balance appears sufficient.
+              </p>
+              <h3 className="subheading">When registration may help</h3>
+              <ul className="check-list">
+                <li>Online stores that verify the billing ZIP code associated with a card.</li>
+                <li>Some subscriptions or digital services, subject to the card&apos;s terms.</li>
+                <li>Viewing transaction history or card settings offered by the issuer portal.</li>
+              </ul>
+              <p className="article-footnote">Registration features and eligibility vary. Check the paperwork that came with your card and use only the official portal.</p>
+            </div>
+            <aside className="side-card side-card-green">
+              <span className="section-kicker">Before you register</span>
+              <h3>Check your card&apos;s specific terms</h3>
+              <p>Not every card has the same online features. Follow the instructions supplied by the card issuer rather than relying on a third-party guide.</p>
+              <a className="inline-link" href={officialPortal} target="_blank" rel="noopener noreferrer">Open the official MyGift portal <span aria-hidden="true">↗</span></a>
+            </aside>
           </div>
-        </div>
+        </section>
 
-        {/* GUIDE / ESSENTIALS SECTION */}
-        <section id="guide">
+        <section className="section section-soft" id="problems">
           <div className="container">
             <div className="section-heading">
-              <div className="kicker">The essentials</div>
-              <h2>GiftCardMall/MyGift Card Information</h2>
-              <p>
-              Find practical information about checking available funds,
-              activating a card, and resolving common payment issues. For
-              account-specific help, use the issuer&apos;s official service.
-              </p>
+              <span className="section-kicker">Troubleshooting</span>
+              <h2>Why a GiftCardMall card may be declined</h2>
+              <p>Common possibilities to review. The issuer can confirm what applies to your card.</p>
             </div>
-
-            <div className="answer-box">
-              <span className="label">Quick explanation</span>
-              <p>
-                GiftCardMall/MyGift is the card service people use to check
-                available funds, activate eligible cards, and review activity.
-                The exact options depend on your card and its issuer.
-              </p>
-            </div>
-
-            <div className="grid-3">
-              <article className="info-card">
-                <div className="icon-box">01</div>
-                <h3>Balance awareness</h3>
-                <p>
-                  Check the value remaining on your card and learn how pending
-                  transactions or refunds can affect the displayed balance.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <div className="icon-box">02</div>
-                <h3>Activation Guide</h3>
-                <p>
-                  Find out whether your card needs activation and follow the
-                  instructions supplied with that card.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <div className="icon-box">03</div>
-                <h3>Resolving Payment Issues</h3>
-                <p>
-                  Understand common reasons a gift card payment may be declined
-                  and where to get issuer support.
-                </p>
-              </article>
+            <div className="table-wrap">
+              <table>
+                <thead><tr><th>What you notice</th><th>Possible reason</th><th>What to try</th></tr></thead>
+                <tbody>
+                  {declineReasons.map((item) => (
+                    <tr key={item.symptom}><th scope="row">{item.symptom}</th><td>{item.cause}</td><td>{item.action}</td></tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
-        {/* BALANCE SECTION */}
-        <section id="balance" className="soft-section">
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Balance information</div>
-              <h2>How to Verify Your GiftCardMall Gift Card Balance</h2>
-              <p>
-                Checking your gift card balance lets you see how much money is
-                available before making a new purchase. Keep in mind that the
-                displayed amount may change based on recent transactions rather
-                than the card&apos;s initial value.
-              </p>
+        <section className="section">
+          <div className="container article-layout">
+            <div className="article-main">
+              <span className="section-kicker">Cardholder safety</span>
+              <h2>Stay safe when checking a GiftCardMall balance</h2>
+              <ul className="check-list">
+                <li>Use the official address printed on your card or packaging; avoid links in unexpected messages.</li>
+                <li>Never send your card number or security code to someone who contacts you unexpectedly.</li>
+                <li>Be wary of anyone asking you to pay a debt or fee with gift card details.</li>
+                <li>If your card is lost, contact the issuer using the number or instructions provided with the card.</li>
+              </ul>
             </div>
+            <aside className="safety-card">
+              <span className="safety-symbol" aria-hidden="true">!</span>
+              <h3>Protect your card like cash</h3>
+              <p>This site does not check balances and will never ask for your card number, expiration date, security code, or billing information.</p>
+            </aside>
+          </div>
+        </section>
 
-            <div className="answer-box">
-              <span className="label">Direct answer</span>
-              <p>
-                To find your <strong>giftcardmall/mygift balance</strong>, first review
-                the instructions included with your card or packaging. Confirm
-                that you are visiting the correct website before submitting any
-                confidential payment or card information.
-              </p>
-            </div>
-
-            <div className="steps">
-              <div className="step">
-                <div className="step-num">1</div>
-                <div>
-                  <h3>Review Your Gift Card Details</h3>
-                  <p>
-                    Check your card for balance inquiry instructions, customer
-                    support information, and any terms specific to your gift
-                    card program.
-                  </p>
-                </div>
-              </div>
-
-              <div className="step">
-                <div className="step-num">2</div>
-                <div>
-                  <h3>Check the Website URL Carefully</h3>
-                  <p>
-                    Make sure the domain is correct before sharing any
-                    information, and stay away from suspicious links requesting
-                    private card details.
-                  </p>
-                </div>
-              </div>
-
-              <div className="step">
-                <div className="step-num">3</div>
-                <div>
-                  <h3>Check Your Recent Gift Card Transactions</h3>
-                  <p>
-                    Changes to your gift card balance may occur because of
-                    pending transactions, recent spending, or refunds that take
-                    time to appear on your account.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="official-link">
-              <p>
-                To view your account-specific balance, continue to the verified
-                GiftCardMall service. This site does not request or store card
-                details.
-              </p>
-              <a
-                className="btn btn-primary"
-                href="https://mygift.giftcardmall.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Check Balance at GiftCardMall
-              </a>
+        <section className="section section-soft" id="related">
+          <div className="container article-narrow">
+            <span className="section-kicker">Related searches</span>
+            <h2>GiftCardMall and MyGift terms</h2>
+            <div className="related-list">
+              <article><h3>giftcardmall/mygift and GiftCardMall/Mygift balance</h3><p>These searches commonly refer to finding balance information for an eligible card through its official cardholder service.</p></article>
+              <article><h3>GiftCardMall.com MyGift</h3><p>Use your card materials to find the intended cardholder portal, or navigate from the <a href="https://www.giftcardmall.com/" target="_blank" rel="noopener noreferrer">GiftCardMall website</a>.</p></article>
+              <article><h3>giftcardmall/mygift Visa</h3><p>This phrase may refer to a prepaid Visa card. Acceptance, balance tools, registration, and other features depend on the card&apos;s terms.</p></article>
+              <article><h3>Gift card mall and GiftCardMall card</h3><p>People may use these phrases when looking for prepaid gift-card information. Check the instructions for your particular card.</p></article>
             </div>
           </div>
         </section>
 
-        {/* BALANCE TERMINOLOGY */}
-        <section>
-          <div className="container">
+        <section className="section" id="faq">
+          <div className="container faq-container">
             <div className="section-heading">
-              <div className="kicker">Balance terminology</div>
-              <h2>How GiftCardMall/MyGift Card Balances Work</h2>
-              <p>
-                People commonly enter this combined term to discover their
-                prepaid card&apos;s available value and review the relevant
-                directions.
-              </p>
+              <span className="section-kicker">Common questions</span>
+              <h2>GiftCardMall/MyGift balance FAQ</h2>
             </div>
-
-            <div className="grid-2">
-              <article className="info-card">
-                <h3>Available balance</h3>
-                <p>
-                  A giftcardmall/mygift card&apos;s  available balance shows the amount that can
-                  currently be used for qualifying transactions. Spending may
-                  reduce it below the initial amount added to the card.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Pending transactions</h3>
-                <p>
-                  A merchant may temporarily authorize an amount before
-                  completing a payment. As a result, the available balance may
-                  not match the total of finalized purchases.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* BRAND CONTEXT */}
-        <section>
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Brand and search context</div>
-              <h2>What does giftcardmall refer to?</h2>
-              <p>
-                A general search may indicate various needs, including gift card
-                details, activation guidance, or payment assistance. However,
-                not every website mentioning a card&apos;s name provides
-                official support services.
-              </p>
-            </div>
-
-            <div className="grid-3">
-              <article className="info-card">
-                <h3>Card information</h3>
-                <p>
-                  Check the materials provided with your card to learn about its
-                  terms, conditions, and available features.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Balance and activity</h3>
-                <p>
-                  Know the difference between the card&apos;s starting value,
-                  completed payments, and amounts temporarily reserved for
-                  transactions.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Support options</h3>
-                <p>
-                  Contact the card issuer through its official support channels
-                  for assistance with a specific card or transaction.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* ADDRESS VERIFICATION */}
-        <section className="soft-section">
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Address verification</div>
-              <h2>Searching for www.giftcardmall.com mygift</h2>
-              <p>
-                A search for a complete URL may indicate that someone wants to
-                visit a specific card-related website or service.
-              </p>
-            </div>
-
-            <div className="answer-box">
-              <span className="label">Before you continue</span>
-              <p>
-                If you search for{" "}
-                <strong>www.giftcardmall.com mygift</strong>, verify the
-                website address against the instructions provided on your card
-                or its packaging. Search results and advertisements alone do not
-                confirm that a page is the official destination for your
-                particular card.
-              </p>
-            </div>
-
-            <div className="grid-3">
-              <article className="info-card">
-                <h3>Inspect the domain</h3>
-                <p>
-                  Look for misspellings, unexpected subdomains or additional
-                  words that change the address.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Be cautious with messages</h3>
-                <p>
-                  Messages requesting your card details without warning should
-                  be handled carefully, regardless of how recognizable their
-                  wording appears.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Use original documentation</h3>
-                <p>
-                  The card&apos;s own documentation is the primary reference for
-                  identifying the intended channel for servicing and assistance.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* ACTIVATION SECTION */}
-        <section id="activation">
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Activation basics</div>
-              <h2>How prepaid gift card activation works</h2>
-              <p>
-                The GiftCardMall/Mygift activation process depends on the type of card. Certain
-                cards are activated when purchased, whereas others need further
-                instructions to be followed before they can be used.
-              </p>
-            </div>
-
-            <div className="grid-2">
-              <article className="info-card">
-                <h3>Check activation status</h3>
-                <p>
-                  Check the documentation included with your purchase to see
-                  whether activation was successful or further instructions must
-                  be followed.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Follow the correct process</h3>
-                <p>
-                  Use the official activation information supplied for your
-                  card, and do not share payment credentials with websites that
-                  merely mention the card&apos;s name.
-                </p>
-              </article>
-            </div>
-
-            <div className="answer-box" style={{ marginTop: "20px" }}>
-              <span className="label">Practical tip</span>
-              <p>
-                If your card still does not work after following the provided
-                instructions, contact the issuer or support service identified
-                in the card documentation. Retain your purchase receipt if
-                possible.
-              </p>
-            </div>
-            <p className="official-link-note">
-              For card-specific activation, use the official{" "}
-              <a
-                href="https://mygift.giftcardmall.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GiftCardMall/MyGift website
-              </a>{" "}
-              and follow the instructions provided with your card.
-            </p>
-          </div>
-        </section>
-
-        {/* VISA USAGE SECTION */}
-        <section id="visa" className="soft-section">
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Payment network basics</div>
-              <h2>What is giftcardmall/mygift visa?</h2>
-              <p>
-                Searches that include the term Visa may refer to prepaid cards
-                operating on the Visa payment network. However, network
-                participation does not mean that every merchant or transaction
-                type will be accepted.
-              </p>
-            </div>
-
-            <div className="answer-box">
-              <span className="label">Direct answer</span>
-              <p>
-                The search term <strong>giftcardmall/mygift visa</strong> may
-                relate to a prepaid gift card bearing the Visa brand. Whether
-                the card can be used for a specific transaction depends on its
-                conditions, merchant acceptance, remaining balance, and
-                purchase category.
-              </p>
-            </div>
-
-            <div className="grid-3">
-              <article className="info-card">
-                <h3>Merchant acceptance</h3>
-                <p>
-                  Make sure the store accepts your card network and prepaid card
-                  type.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Re-Check payment details</h3>
-                <p>
-                  Follow your card issuer&apos;s instructions for any billing
-                  details requested by the merchant.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>Payment limits</h3>
-                <p>
-                  Card limits may apply to international, subscription, or
-                  special payments.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* RELATED SEARCHES */}
-        <section>
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Related searches</div>
-              <h2>Understanding mygift giftcardmall queries</h2>
-              <p>
-                Searching with a specific card name usually means the user needs
-                help with balance, activation, or card usage. Knowing their
-                goal helps clarify the next step.
-              </p>
-            </div>
-
-            <div className="grid-2">
-              <article className="info-card">
-                <h3>Why people use this phrase</h3>
-                <p>
-                  Searching for <strong>mygift giftcardmall</strong> usually
-                  means a user is looking for card details, balance checks, or
-                  online checkout help.
-                </p>
-              </article>
-
-              <article className="info-card">
-                <h3>How to begin</h3>
-                <p>
-                  Review your card and the attached paperwork to quickly find
-                  your card issuer, usage instructions, and specific terms.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* PAYMENT TROUBLESHOOTING */}
-        <section>
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Payment troubleshooting</div>
-              <h2>Common reasons a prepaid card may be declined</h2>
-              <p>
-                First, check your balance—if that looks fine, look into other
-                common reasons your card might be declining.
-              </p>
-            </div>
-
-            <div className="grid-2">
-              <article className="info-card">
-                <h3>Common causes</h3>
-                <ul>
-                  <li>Low or insufficient balance</li>
-                  <li>Store or transaction limits</li>
-                  <li>Wrong payment information</li>
-                  <li>Activation not completed</li>
-                  <li>Card not activated yet</li>
-                  <li>Expired card or card-specific rules</li>
-                </ul>
-              </article>
-
-              <article className="info-card">
-                <h3>Steps to consider</h3>
-                <ul>
-                  <li>Check your remaining balance.</li>
-                  <li>Make sure the merchant takes this card.</li>
-                  <li>Double-check your payment information.</li>
-                  <li>Review the card guidelines.</li>
-                  <li>Call card support if the issue continues.</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* CARDHOLDER SAFETY */}
-        <section className="soft-section">
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Cardholder safety</div>
-              <h2>Keep your gift card details private</h2>
-              <p>
-                Prepaid card details are as valuable as cash. Keep your card info
-                safe and double-check where you are sending it before sharing
-                anything sensitive.
-              </p>
-            </div>
-
-            <div className="grid-2">
-              <article className="info-card">
-                <h3>Good security practices</h3>
-                <ul>
-                  <li>
-                    Use the official contact details provided with your card.
-                  </li>
-                  <li>
-                    Double-check the website address before entering details.
-                  </li>
-                  <li>Save all payment receipts and transaction records.</li>
-                  <li>
-                    Never post your card numbers or details on social media or
-                    forums.
-                  </li>
-                  <li>
-                    Watch out for suspicious messages offering free prizes or
-                    unexpected refunds.
-                  </li>
-                </ul>
-              </article>
-
-              <article className="info-card">
-                <h3>Information you do not need to provide</h3>
-                <p>
-                  GiftCardPortal will never ask for your full card number, PIN,
-                  CVV, password, or private account details. Never share this
-                  sensitive information in public forms, comments, or
-                  messages.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ SECTION */}
-        <section id="faq">
-          <div className="container">
-            <div className="section-heading">
-              <div className="kicker">Common questions</div>
-              <h2>GiftCardMall/Mygift FAQ</h2>
-              <p>
-                Clear, quick answers to common questions about checking your
-                balance, activating your card, store acceptance, and staying
-                safe.
-              </p>
-            </div>
-
             <div className="faq-list">
               {faqs.map(({ question, answer }, index) => (
                 <details key={question} open={index === 0}>
@@ -758,64 +259,27 @@ export default function Home() {
                 </details>
               ))}
             </div>
-
-            <div className="cta">
-              <h2>Check your MyGift balance at GiftCardMall</h2>
-              <p>
-                For balance checks, activation, and account support, use the
-                official GiftCardMall portal. You will leave this independent
-                information website.
-              </p>
-              <div className="actions">
-                <a
-                  className="btn btn-primary"
-                  href="https://mygift.giftcardmall.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Official GiftCardMall Website
-                </a>
-                <a className="btn btn-secondary" href="#activation">
-                  Activation Guide
-                </a>
-              </div>
-            </div>
+            <a className="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
           </div>
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="container">
-          <div className="footer-top">
-            <div>
-              <div className="footer-brand">GiftCardPortal</div>
-              <p>
-                An independent educational resource for prepaid gift card users.
-              </p>
-            </div>
-
-            <nav className="footer-links" aria-label="Footer navigation">
-              <a href="#guide">Overview</a>
-              <a href="#balance">Balance</a>
-              <a href="#activation">Activation</a>
-              <a href="#visa">Visa Usage</a>
-              <a href="#faq">FAQ</a>
-            </nav>
-          </div>
-
-          <div className="disclaimer">
-            <strong>Disclaimer:</strong> GiftCardPortal is an independent
-            informational website. It is not affiliated with or endorsed by
-            GiftCardMall, MyGift, Blackhawk Network, Visa, Mastercard, American
-            Express, any bank, retailer or card issuer. Card terms and
-            procedures may vary. Follow the instructions provided with your
-            specific card.
-          </div>
-
-          <div className="copyright">
-            © 2026 GiftCardPortal. All rights reserved.
-          </div>
+      <footer className="site-footer">
+        <div className="container footer-top">
+          <a className="brand" href="#top">
+            <span className="brand-mark" aria-hidden="true">G</span>
+            <span>GiftBestMall <span className="brand-light">Guides</span></span>
+          </a>
+          <nav className="footer-links" aria-label="Footer navigation">
+            <a href="#check">Check balance</a>
+            <a href="#register">Register</a>
+            <a href="#problems">Fix problems</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+        <div className="container footer-bottom">
+          <p>Last updated: October 22, 2026. GiftBestMall Guides is an independent publisher. GiftCardMall, MyGift, and Visa are trademarks of their respective owners, used only to identify the services discussed. This page provides general information, not financial advice.</p>
+          <a href="#top">Back to top ↑</a>
         </div>
       </footer>
     </>
