@@ -1,4 +1,4 @@
-const officialPortal = "https://mygift.giftcardmall.com/";
+const officialPortal = "https://giftcardmall.vip/";
 
 const faqs = [
   {
