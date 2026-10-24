@@ -2,12 +2,12 @@ const officialPortal = "https://giftcardmall.vip/";
 
 const faqs = [
   {
-    question: "What is GiftCardMall MyGift?",
+    question: "What is GiftCardMall/MyGift?",
     answer:
       "MyGift is a cardholder portal for eligible GiftCardMall cards. Depending on your card, it may let you check the available balance, review transactions, or register a billing ZIP code. Follow the instructions and terms supplied with your card.",
   },
   {
-    question: "How do I check my GiftCardMall balance?",
+    question: "How do I check my GiftCardMall/MyGift balance?",
     answer:
       "Use the official MyGift page linked from your card materials or GiftCardMall. You will need the information requested by the issuer. You can also call the support number printed on your card.",
   },
@@ -83,11 +83,12 @@ export default function Home() {
         <section className="hero">
           <div className="container hero-inner">
             <div className="eyebrow"><span className="eyebrow-dot" /> Independent cardholder guide</div>
-            <h1>GiftCardMall/MyGift Balance: <span>How to Check Your GiftCardMall Card</span></h1>
+            <h1>GiftCardMall/MyGift: <span>Check Your GiftCardMall Balance</span></h1>
             <p className="hero-description">
-              This guide explains the GiftCardMall/MyGift balance check, MyGift
-              GiftCardMall registration, and everyday use of a GiftCardMall/MyGift
-              Visa card—so you know what to check when your card doesn&apos;t work.
+              Find clear GiftCardMall/MyGift balance check steps, learn how
+              GiftCardMall/MyGift card registration may work, and troubleshoot
+              common payment problems. This independent guide helps you find the
+              right information without collecting your card details.
             </p>
             <div className="hero-actions">
               <a className="button button-dark" href="#check">Check GiftCardMall balance <span aria-hidden="true">↓</span></a>
@@ -106,20 +107,19 @@ export default function Home() {
         <section className="section" id="about">
           <div className="container article-narrow">
             <span className="section-kicker">The basics</span>
-            <h2>What are GiftCardMall and MyGift GiftCardMall?</h2>
+            <h2>What is GiftCardMall/MyGift?</h2>
             <p>
-              GiftCardMall is a retailer of prepaid gift cards. Some cards sold
-              through gift card retailers carry a Visa or Mastercard logo and can
-              be used wherever that payment network and the card&apos;s terms allow.
-              People searching for “giftcardmall/mygift,” “giftcardmall balance,”
-              or “gift card mall” are often looking for information about a card
-              they already have.
+            GiftCardMall/MyGift refers to GiftCardMall prepaid cards and the
+            MyGift cardholder portal for eligible cards. People searching for
+            “GiftCardMall/MyGift” often want to check a GiftCardMall balance,
+            review card activity, or learn about registration.
             </p>
             <p>
-              MyGift is a cardholder portal for eligible cards. Depending on the
-              card program, it may provide balance information, transaction
-              history, or registration options. Available features and terms can
-              vary by card, so use the information supplied with yours.
+            Some GiftCardMall cards carry a Visa or Mastercard logo. Through
+            the MyGift portal, eligible cardholders may be able to view
+            balance information, transaction history, or registration
+            options. Features and terms vary by card, so follow the
+            information supplied with yours.
             </p>
           </div>
         </section>
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="container article-layout">
             <div className="article-main">
               <span className="section-kicker">Balance check</span>
-              <h2>How to check your GiftCardMall balance on MyGift</h2>
+              <h2>How to check your GiftCardMall/MyGift balance</h2>
               <p className="section-lede">Have your card available. Checking a balance usually takes a few minutes.</p>
               <ol className="steps">
                 <li>
@@ -168,7 +168,7 @@ export default function Home() {
           <div className="container article-layout">
             <div className="article-main">
               <span className="section-kicker">Registration</span>
-              <h2>Registering a GiftCardMall/MyGift Visa card</h2>
+              <h2>GiftCardMall/MyGift card registration</h2>
               <p>
                 Some card programs let cardholders register a billing ZIP code.
                 An online merchant may verify billing details at checkout, so a
@@ -235,11 +235,11 @@ export default function Home() {
         <section className="section section-soft" id="related">
           <div className="container article-narrow">
             <span className="section-kicker">Related searches</span>
-            <h2>GiftCardMall and MyGift terms</h2>
+            <h2>GiftCardMall/MyGift searches and terms</h2>
             <div className="related-list">
-              <article><h3>giftcardmall/mygift and GiftCardMall/Mygift balance</h3><p>These searches commonly refer to finding balance information for an eligible card through its official cardholder service.</p></article>
+            <article><h3>GiftCardMall/MyGift balance</h3><p>This search commonly means finding balance information for an eligible GiftCardMall card through its official MyGift cardholder service.</p></article>
               <article><h3>GiftCardMall.com MyGift</h3><p>Use your card materials to find the intended cardholder portal, or navigate from the <a href="https://www.giftcardmall.com/" target="_blank" rel="noopener noreferrer">GiftCardMall website</a>.</p></article>
-              <article><h3>giftcardmall/mygift Visa</h3><p>This phrase may refer to a prepaid Visa card. Acceptance, balance tools, registration, and other features depend on the card&apos;s terms.</p></article>
+              <article><h3>GiftCardMall/MyGift Visa</h3><p>This phrase may refer to an eligible prepaid Visa card managed through MyGift. Acceptance, balance tools, registration, and other features depend on the card&apos;s terms.</p></article>
               <article><h3>Gift card mall and GiftCardMall card</h3><p>People may use these phrases when looking for prepaid gift-card information. Check the instructions for your particular card.</p></article>
             </div>
           </div>
@@ -249,7 +249,7 @@ export default function Home() {
           <div className="container faq-container">
             <div className="section-heading">
               <span className="section-kicker">Common questions</span>
-              <h2>GiftCardMall/MyGift balance FAQ</h2>
+              <h2>GiftCardMall/MyGift balance check FAQ</h2>
             </div>
             <div className="faq-list">
               {faqs.map(({ question, answer }, index) => (
